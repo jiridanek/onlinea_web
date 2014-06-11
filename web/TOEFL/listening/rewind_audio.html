@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>rewind_audio</title>
+</head>
+
+<body>
+  <button>Button</button>
+  <hr>
+  <audio controls="">
+    <source
+      src="http://is.muni.cz/www/374368/47320799/48766610/48793050/48857151/w190124.ogg"
+      type="audio/ogg"></source>
+    <source
+      src="http://is.muni.cz/www/374368/47320799/48766610/48793050/48857151/w190124.mp3"
+      type="audio/mpeg"></source>
+  </audio>
+
+  <audio controls="">
+    <source
+      src="http://is.muni.cz/www/374368/47320799/48766610/48793050/48857151/w190125.ogg"
+      type="audio/ogg"></source>
+    <source
+      src="http://is.muni.cz/www/374368/47320799/48766610/48793050/48857151/w190125.mp3"
+      type="audio/mpeg"></source>
+  </audio>
+  
+  <script type="application/dart" src="rewind_audio.dart"></script>
+  <!-- for this next line to work, your pubspec.yaml file must have a dependency on 'browser' -->
+  <script src="packages/browser/dart.js"></script>
+</body>
+</html>

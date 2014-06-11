@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="interviewwithgiladbracha.css">
+<link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css'>
+<title>ReceptorsInLungs</title>
+</head>
+<body>
+  <p>This questionare is primarily a listening exercise. It consists
+    of a fill-in-the-blanks exercise and a supplementary translation
+    exercise. The listening exercise requires you to fill-in some words
+    that were left out from the transcript. In the translation exercise
+    you are asked to pick and arrange English words to form translations
+    of the Czech sentences you are given.</p>
+  <p>The listening is an 18 minutes long interview with a
+    programming language designer. You have been warned.</p>
+
+  ++
+
+  <h2>Fill in the blanks</h2>
+  <p>The first task of the questionare is somewhat difficult. The
+    audio is not of the best quality and there is a lot of background
+    noise at times. There is also a lot of blanks to fill. Thankfully,
+    the HTML5 audioplayer has some advanced ;) features regarding quick
+    pausing and repeating last few seconds of the audio. With its help
+    you should be able to fill everything in the first pass and you
+    won't have to listen to the audio multiple times.</p>
+  <p>In every box there should be exactly one word. If you are
+    unsure how to spell some of the words, you may find it in the
+    vocabulary task below.</p>
+  <h4>Keyboard shortcuts</h4>
+  <p>
+    You can use the following shortcuts for a quick navigation <span
+      class="unavailable dart">both with the HTML5 audio player
+      and</span> in the questionnaire.
+  </p>
+  <table>
+    <tr class="unavailable dart">
+      <td><span class="key">Space</span></td>
+      <td>pause or resume playback</td>
+    </tr>
+    <tr class="unavailable seek">
+      <td><span class="key">Shift</span> + <span class="key">Space</span></td>
+      <td>rewind 8 seconds back and resume playback</td>
+    </tr>
+    <tr>
+      <td><span class="key">Tab</span></td>
+      <td>move to the next text field</td>
+    </tr>
+    <tr>
+      <td><span class="key">Shift</span> + <span class="key">Tab</span></td>
+      <td>move to the previous field</td>
+    </tr>
+  </table>
+  <h3>Hack and Heckle: Interview with Gilad Bracha</h3>
+  <p>
+    <i>At the YOW 2013 conference we had a chance to interview Gilad
+      Bracha who works on the Dart language at Google.</i>
+  </p>
+
+  --
+<nav id="playerbar">
+    <table>
+    <tr>
+      <td>
+        <p>HTML5 player:</p>
+      </td>
+      <td>
+        <div id="playerdiv">
+          <audio controls autobuffer preload id="player">
+            <source
+              src="http://www.fi.muni.cz/~xdanek7/online_a/HHBracha.oga"
+              type='audio/ogg'></source>
+            <source
+              src="http://fi.muni.cz/~xdanek7/online_a/HHBracha.webm"
+              type='audio/webm'></source>
+            <source
+              src="http://fi.muni.cz/~xdanek7/online_a/HHBracha.mp3"
+              type='audio/mpeg'></source>
+
+            <source
+              src="https://is.muni.cz/auth/www/374368/43840354/HHBracha.mp3"
+              type='audio/mpeg'></source>
+            <source
+              src="https://is.muni.cz/auth/www/374368/43840354/HHBracha.webm"
+              type='audio/webm'></source>
+            <p>Your web browser does not support the HTML5 Audio
+              element.</p>
+          </audio>
+          <div id="stop" class="unavailable dart">◼</div>
+        </div>
+        <hr>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>Flash based player:</p>
+      </td>
+      <td><object
+          data="https://is.muni.cz/auth/el/1441/podzim2013/ONLINE_A/aux/listening/prehravac.swf?klip= https://is.muni.cz/auth/www/374368/43840354/HHBracha.mp3"
+          type="application/x-shockwave-flash" height="25" width="75">
+          <param name="allowScriptAccess" value="sameDomain">
+          <param name="movie"
+            value="https://is.muni.cz/auth/el/1441/podzim2013/ONLINE_A/aux/listening/prehravac.swf?klip=  https://is.muni.cz/auth/www/374368/43840354/HHBracha.mp3">
+          <param name="quality" value="high">
+          <param name="wmode" value="transparent">
+          <p>Your web browser does not have the Flash Plugin
+            installed.</p>
+        </object></td>
+    </tr>
+  </table>
+  <p>
+    or <a
+      href="https://is.muni.cz/auth/www/374368/43840354/HHBracha.mp3"
+      download>download the mp3 file here</a>
+  </p>
+  <nav>
+  <article>
+    <h4>Introduction</h4>
+    <p class="q"> <span class="anchor" data-timestamp="0">play from here</span> 
+      <i class="person">Darren Rogan:</i> Hello and welcome to Hack and Heckle. Today
+      we have an interview with Gilad Bracha who works at Google on the
+      Dart language. Joining me today is Gilad Bracha, is that correct?
+    </p>
+    <p class="a">
+      <i class="person">Gilad Bracha:</i> Close enough. Usually Gilad Bracha is what
+      English speakers should say because they gag otherwise.
+    </p>
+
+    <p class="q"><span class="anchor" data-timestamp="54">play</span>How do you pronounce it?</p>
+    <p class="a">Gilad Bracha.</p>
+
+    <p class="q">Okay, I’ve got no chance.</p>
+    <p class="a">Yeah, I don’t— That’s okay.</p>
+
+    <h4>Dart</h4>
+    <p class="q">
+      So you’re doing a talk here called <i>Explorations in Next
+        Generation Web Languages</i>, and you were just saying before we
+      started that it was more about languages themselves that are
+      related to webs. Do you want to just give a quick synopsis of
+      [crosstalk 00:36]?
+    </p>
+    <p class="a">Sure. So two languages. One is Dart, Dart is the
+      language we’re working on at Google for web programming. It’s
+      designed to make it easier to develop large-scale web apps,
+      especially for people who might be uncomfortable with JavaScript,
+      people from a more traditional software engineering background,
+      Java, C#, whatever. But generally it’s more structured. The larger
+      your apps get, the more you need kind of some sort of standard
+      structure. We have classes. We have a form of type-checking, which
+      is interesting, it's optional type-checking. We have a standard
+      library, we have all kinds of things that you don’t get in
+      JavaScript, which is proving to be very useful at Google, and it’s
+      open-source and we’re putting *** out [crosstalk 01:24]</p>
+
+    <p class="q">Is there a dependency-management framework in it,
+      or—</p>
+    <p class="a">There’s, I’m not sure what you mean here, there is
+      a package manager that—</p>
+
+    <p class="q">Yeah, package manager.</p>
+    <p class="a">Yeah, yeah sure. Lots of the usual paraphernalia
+      that you really want to have standardized. That's a bit of an
+      issue in JavaScript. There’s a lot to choose from there, but you
+      have to make the choices, then other people have made other
+      choices and they don’t inter-operate, so it’s a big problem. There
+      are lots of other issues, but just to give you an idea of what
+      Dart is about. The other language, Newspeak, is a language that I
+      developed a few years ago that is much more, I guess, radical.
+      Dart is aimed at, for more mainstream adoption, we're at 1.0,
+      it’s something Google’s putting out and using in its products.</p>
+
+    <h4>Newspeak</h4>
+    <p class="q">I have heard of it but I haven’t actually spent any
+      time looking at it, although Newspeak, I haven’t actually heard of
+      that one.</p>
+    <p class="a">Yeah, I’m not terribly surprised, right, if you’re
+      not reading the programming language research literature or are
+      hardcore, you probably haven’t because it doesn’t have— Tt’s a
+      small kind of labor-of-love kind of thing, it doesn’t have a lot
+      of backing. I had some funding before the crash in 2008, and after
+      that it’s been more a volunteer, open-source thing.</p>
+
+    <p class="q">What would be the difference between it and Dart
+      for example?</p>
+    <p class="a">Newspeak is really trying to push the envelope in a
+      lot of ways, so it has very powerful modularity properties,
+      probably more powerful than any language you’ve seen. The sort of
+      simplistic way of putting it is dependency-injection built into
+      the language. I don’t particularly like that, but it’s something
+      that maybe people can relate to without my giving a half-hour
+      explanation. It also comes with its own— It has an IDE written in
+      itself, it’s very flexible, with a lot of— I don’t know if you’ve
+      heard of Smalltalk, but it’s in the tradition of Smalltalk and
+      Self, but with a bit more, mainly modularity and security brought
+      in mind.</p>
+
+    <h4>Language design</h4>
+    <p class="q">Okay. Is language construction something— I would
+      imagine it’s a quite difficult field to get into, quite small. I
+      remember when I was at Uni studying compilers I thought “this
+      would be lots of fun but I’d never get a job.”</p>
+    <p class="a">It is— Getting a job in this is not something you
+      can really reliably plan for. Mostly it’s, most people who do this
+      in academia, there are very few of us who manage to get paid
+      full-time in industry to work on this. You really have to be very
+      specialized, right? That’s certainly true. It’s not just
+      compilers. Compilers is comparatively easy to get a job. There are
+      loads of, relatively speaking, from my perspective, loads of
+      people work on implementation, but actually language design and so
+      forth, there are very, very few and we all know each other, right?
+      There are some people at Microsoft, Google, used to be at Sun. I
+      spent a lot of time working on Java as well and other things.
+      Yeah, it’s a very specialized [fun work 04:27]</p>
+
+    <p class="q">It seems it would be quite enjoyable as well. It’s
+      one of those jobs like a referee. No one’s going to— Any time they
+      had a problem, they always blame the referee at the end of the
+      day. Thankless job, you know what I mean?</p>
+    <p class="a">Well, I know exactly what you mean, but it’s nice
+      work if you can get it. If you really— People care about
+      programming languages in a quite irrational way, right, because
+      it’s in your face all the time. It’s what you’re actually—</p>
+
+    <p class="q">Would you be in [inaudible 00:04:54] Douglas
+      Crockford. You’ve seen the discussion that Haskell guy wanted a
+      knife fight over disregarding a type system?</p>
+    <p class="a">Ooh, I missed that. I’ve been in those fights all
+      the time and I’ve played both sides of the street actually on
+      that. Sure, it’s almost like religion, right. It gets very
+      passionate, very emotional, and it’s really very important to
+      people, the language they work on. There’s a lot of discussion of
+      the pro’s and con’s and technical reasons, but in the end there’s
+      something more going on here.</p>
+
+    <p class="q">Emotional decisions.</p>
+    <p class="a">Yeah, yeah.</p>
+
+    <h4>Future of Dart</h4>
+    <p class="q">So would you say that Dart is going, hopefully, to
+      be a successor to JavaScript? Is that what—</p>
+    <p class="a">That’s not really what we’re after. That is the
+      one-line characterization that a lot of people have put out.</p>
+
+    <p class="q">Yeah, I’ve heard that myself. I haven’t really
+      looked at it.</p>
+    <p class="a">Yeah, it’s not necessarily very helpful. We’re
+      trying to give people a meaningful alternative. We think that
+      competition is good, choice is good. Having people confirm a fact
+      that the only language you can use on a web browser realistically
+      is JavaScript is, that’s not going to last. The world doesn’t work
+      that way.</p>
+
+    <p class="q">It’s also depressing as well, a little bit.</p>
+    <p class="a">Yes, but, I don’t want to get into that particular
+      war. Lots of people are going to compile to JavaScript. The
+      difficulty is that, unless you have a lot of resources and
+      expertise, you’re going to lose performance in that transition, or
+      else your language is so close to JavaScript it really didn’t
+      matter in the first place. It’s easy to make some sort of, easy—</p>
+
+    <p class="q">Yeah, DSL basically on top of JavaScript.</p>
+    <p class="a">Yeah, but unless it changes something important,
+      it’s not that interesting. If it changes something important,
+      you’ll find that it is not easy to compile to and you need
+      resources to fly all these kind of things to make compilers really
+      work. Dart basically, the JavaScript that you get out of Dart runs
+      about as fast as the JavaScript you run by hand. Oddly enough, we
+      couldn’t believe it at first, but it turns out in some cases even
+      faster, because the compiler sometimes does some optimizations
+      that a reasonable person wouldn’t do. We’re in that ballpark, so
+      you’re not really losing any performance by going to Dart.
+      Basically there isn’t, in our view, there isn’t a downside, but
+      that has taken a lot of clever Google engineers a fair amount of
+      work, and many language projects will not have those resources to
+      do that.</p>
+
+    <p class="q">Would you say there’s much of an uptake towards
+      Dart?</p>
+    <p class="a">There’s an uptake. First of all, Google had
+      multiple goals with this one. The most important one is to make
+      Google more efficient, right? So we invest no small amount in web
+      programming. We’ve written probably more JavaScript code than
+      anybody else. A lot of people came to the conclusion that it would
+      be productive to have something different. Beyond that, outside we
+      just launched 1.0 in mid-November, so we’re in it for the long
+      haul. There’s people using it, there’s people, even before we had
+      1.0, there’s people doing startups with it, which is rather brave
+      of them given that we were changing things under their feet all
+      the time. Definitely we expect to see considerable update. The
+      language has been designed to be kind of comfortable for people.
+      It’s very familiar, if you come from the curly-brace tradition,
+      then you should be able to get the basic idea without any
+      surprises.</p>
+
+    <p class="q">Will there be any other support within Chrome, or
+      is it always going to be built into a JavaScript?</p>
+    <p class="a">Okay, so there’s actually a virtual machine as
+      well. The virtual machine, I don’t know what our official stance
+      is, but it’s going to find its way into Chrome at some point. The
+      bar for getting to Chrome is incredibly high, for all kinds of
+      both engineering reasons and security and [inaudible 00:08:50]
+      footprint and all kinds of things, right? But we expect it, we’re
+      quite sure it’ll get into Chrome at one point, right? At that
+      point you’ll have the Dart being natively supported inside Chrome,
+      which is no small thing because a very large proportion of the
+      world’s desktops and an even larger proportion, probably, in terms
+      of the world’s mobile. I don’t know when it’ll become ubiquitous,
+      but it has an advantage. Right now, first of all you can run it on
+      the server with better performance. The other advantage, which
+      might be slightly surprising, is, a big problem with the tools
+      that compile into JavaScript is the development cycle. They
+      introduce a delay of these compilations, which can be quite slow
+      at times and so forth. Our development environment basically uses
+      a build of Chrome, of Chromium basically, that already has Dart in
+      it, we call it Dartium. You get instantaneous response, just like
+      with a dynamic language, like any other dynamic language like Ruby
+      or JavaScript or something, so your development cycle is really
+      quick.</p>
+
+    <p class="q">I’m Java background, did a lot of Ruby lately. It’s hard to
+      go back to that long build cycle.</p>
+    <p class="a">Basically, a lot of us are old Smalltalkers at
+      heart, and we had the short build cycle decades ago and the rest
+      of the world looked strangely on us. Slowly these ideas are
+      getting into the mainstream.</p>
+
+    <h4>The name</h4>
+    <p class="q">Were you involved in the name, because I think
+      Dart’s a fantastic name?</p>
+    <p class="a">Well, I wasn’t really involved in the name. There
+      was a lot of discussion. There were a lot of names thrown about.</p>
+
+    <p class="q">Really? What sort of alternative names were thrown
+      about?</p>
+    <p class="a">Let’s see, there was Dash. I think it was
+      originally, the code name was Dash. I think that’s public
+      knowledge. Dash had some, once you actually want a name you have
+      to go through legal and whatnot.</p>
+
+    <p class="q">And trademark infringements and—</p>
+    <p class="a">Yeah, all kinds of things. So finding something
+      that worked for everyone, that had that same flavor of being
+      something light and fast and whatever took awhile. I can’t say
+      that I was much involved in the name but I was there as the
+      discussions went back and forth.</p>
+
+    <p class="q">Okay, cool. I always like a good name. I like
+      the*** stories where they come from. I just think it’s a bit
+      strange with the train system being called Dart in the Bay Area as
+      well, which …</p>
+    <p class="a">It’s called Bart actually.</p>
+
+
+    <p class="q">Bart, sorry.</p>
+    <p class="a">So that’s a different matter. That’s Bay Area Rapid
+      Transit.</p>
+
+    <p class="q">Bay Area, yeah. I kept thinking it was Dart.</p>
+    <p class="a">Yeah. That might be Dublin, in Ireland.</p>
+
+    <h4>Conclusion</h4>
+    <p class="q">Yes, it could be. I think it’s the Dart in Dublin.
+      I get them confused [inaudible 00:11:27] Is there any other talks
+      that you’re interested in attending or that you’ve already seen?</p>
+    <p class="a">I’ve, there’s a couple of talks on language NVMs so
+      … The Facebook guys have this interesting take on this language
+      hack which is basically PHP slightly cleaned up and with a type
+      system. I don’t want to say anything good about PHP, but they’ve
+      done very good work in terms of … there’s some commonality along.
+      This is a trend that we’re starting to see really take off of type
+      systems for what were otherwise dynamic-type programming
+      languages. They’re doing that in PHP. We have such a system for
+      Dart. This has been a hobbyhorse of mine for 20 years. We built
+      one for Smalltalk many years ago and so forth, so again, it takes
+      that long. When you do something in research or whatever, it takes
+      20, 30, whatever years until you see it in the mainstream, so you
+      don’t get too many opportunities. The Microsoft guys have
+      TypeScript, which is basically a—</p>
+
+    <p class="q">A typing system for JavaScript.</p>
+    <p class="a">A typing system for JavaScript, and there’s all
+      kinds of technical differences between these things, but they’re
+      actually all kind of in the same flavor in a lot of ways and
+      that's kind of cool.</p>
+
+    <p class="q">Might bring it to an end. Thank you very much.</p>
+    <p class="a">You’re very welcome.</p>
+
+    <p class="q">And I hope you enjoy your time here in Australia.</p>
+    <p class="a">Thank you.</p>
+
+  </article>
+<hr>
+
+  Take a deep breath. Taste anything? Actually, your :t1_____ may.
+  Because scientists have :t2________ that the same :t3______ that exist
+  on the tongue to :t4_____ bitter substances are also :t5_____ on the
+  smooth :t6_____ of the :t7_____ . Researchers were studying the
+  receptors on :t8_____ lung muscles that regulate :t9________ and
+  relaxation of the :t10_____ . That’s when they made the
+  discovery—which was so :t11_____ that the researchers themselves were
+  :t12_____ . Finally, they :t13_____ :t14_____ that the receptors were
+  really there, though not :t15_____ in taste buds as they are on the
+  :t16_____ . The scientists then exposed :t17_____ and :t18_____
+  airways to various bitter :t19________ to :t20_____ the effects. Many
+  :t21_____ compounds are :t22_____ , so the researchers expected the
+  lung :t23_____ to tense up and :t24_____ -to compel the :t25_____ to
+  move away from whatever was bitter and :t26_____ toxic. But, in a
+  second surprise, bitter compounds :t27_____ and :t28_____ airways
+  better than any existing asthma :t29_____ . The study is in the
+  :t30_____ Nature Medicine *. Researchers will :t31_____ to :t32_____
+  for the role of the receptors. :t33________ , the work represents a
+  surprising new :t34_____ in the search for drugs to treat :t35_____ ,
+  :t36________ or :t37_____ :t38________ . *) [
+  <i>Deepak Deshpande et al.</i>, "
+  <a
+    href="http://www.nature.com/nm/journal/vaop/ncurrent/full/nm.2237.html">Bitter
+    taste receptors on airway smooth muscle bronchodilate by localized
+    calcium signaling and reverse obstruction</a>"] Source:
+  <a
+    href="http://www.scientificamerican.com/podcast/episode.cfm?id=receptors-for-taste-found-in-lungs-10-10-25">http://www.scientificamerican.com/podcast/...</a>
+
+  :t1="lungs" ok :t2="discovered" ok :t3="receptors" ok :t4="taste" ok
+  :t5="found" ok :t6="muscle" ok :t7="lungs" ok :t8="smooth" ok
+  :t9="contraction" ok :t10="airways" ok :t11="unexpected" ok
+  :t12="skeptical" ok :t13="became" ok :t14="convinced" ok
+  :t15="clustered" ok :t16="tongue" ok :t17="human" ok :t18="mouse" ok
+  :t19="compounds" ok :t20="gauge" ok :t21="toxic" ok :t22="bitter" ok
+  :t23="muscle" ok :t24="contract" ok :t25="breather" ok :t26="perhaps"
+  ok :t27="relaxed" ok :t28="opened" ok :t29="drug" ok :t30="journal" ok
+  :t31="continue" ok :t32="search" ok :t33="Meanwhile" ok :t34="lead" ok
+  :t35="asthma" ok :t36="emphysema" ok :t37="chronic" ok
+  :t38="bronchitis" ok -- ++
+  <h3>Match the words with their definitions</h3>
+  -- Tissue in human or animal body that has the ability to contract and
+  produce movement. :m1 To measure the properties of something. :m2 A
+  medicine :m3 A newspaper or magazine that writes about particular
+  topic or professional activity :m4 In the intervening period of time
+  between two events. :m5 To initiate something or give a clue :m6 A
+  long-term respiratory condition, in which the airways may unexpectedly
+  and suddenly narrow, often in response to an allergen, cold air,
+  exercise, or emotional stress. Symptoms include wheezing, shortness of
+  breath, chest tightness, and coughing.
+  <i>[from wiktionary.org]</i> :m7 A chronic lung disease, characterised
+  by an abnormal increase in the size of the air spaces, resulting in
+  laboured breathing and caused by exposure to toxic chemicals such as
+  tobacco smoke.
+  <i>[wiktionary.org]</i> :m8 A medical condition described as
+  inflammation of the bronchi of the lungs, that causes the cilia of the
+  bronchial epithelial cells to stop functioning.
+  </i>[wiktionary.org]
+  </i> :m9 All parts of the respiratory system through which air flows,
+  conceptually beginning (on inhalation from the external environment)
+  at the nose and mouth, and terminating in the alveoli. It is generally
+  used synonymously with respiratory tract, to avoid sounding overly
+  scientific.
+  <i>[from en.wikipedia.org]</i> :m10 :m1="muscle" ok :m2="to gauge" ok
+  :m3="drug" ok :m4="journal" ok :m5="meanwhile" ok :m6="to give a lead"
+  ok :m7="asthma" ok :m8="emphysema" ok :m9="chronic bronchitis" ok
+  :m10="airways" ok -- ++
+  <h3>Answer the questions</h3>
+  -- Fill in the
+  <i>opposite</i> of the word
+  <b>to contract</b>, in relation to muscles
+
+  <span class="canhasspace"> :t1 </span> :t1="to relax" ok :t1="relax"
+  ok :t1="relaxed" ok -- Fill in the basic taste that is commonly linked
+  with the given substance. The first pair is given as an example
+  <table>
+    <tr>
+      <td>sugar</td>
+      <td><input value="sweetness"></td>
+    </tr>
+    <tr>
+      <td>lemon</td>
+      <td><span class="canhasspace"> :t1 </span></td>
+    </tr>
+    <tr>
+      <td>salt</td>
+      <td><span class="canhasspace"> :t2 </span></td>
+    </tr>
+    <tr>
+      <td>coffee</td>
+      <td><span class="canhasspace"> :t3 </span></td>
+    </tr>
+  </table>
+
+  :t1="sourness" ok :t2="saltiness" ok :t3="bitterness" ok -- Fill in
+  the
+  <i>opposite</i> of the word
+  <b>chronic</b>, in relation to diseases or aches.
+
+  <span class="canhasspace"> :t1 </span> :t1="acute" ok -- ++
+
+  <style>
+
+</style>
+
+  <script>
+    
+    </script>
+
+  <script type="application/dart" src="interviewwithgiladbracha.dart"></script>
+  <script src="packages/browser/dart.js"></script>
+</body>
+</html>

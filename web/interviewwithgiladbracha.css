@@ -1,0 +1,95 @@
+body {
+  background-color: #F8F8F8;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.4em;
+  margin: 15px;
+}
+
+article {
+  width: 565px;
+  float: left;
+}
+
+article h4 {
+  font-family: 'Wire One',helvetica,sans-serif;
+  font-size: 42px;
+  color: orange;
+  margin-bottom:0.43em;
+}
+
+nav {
+  float: right;
+}
+
+p.q, p .person {
+  font-weight: bolder;
+}
+
+p {
+  position: relative;
+  margin-left: 50px;
+  text-align: justify;
+}
+
+.anchor {
+  /*display: inline-block;*/
+  white-space: nowrap;
+  position: absolute;
+  right: 100%;
+  padding-right: 1em;
+  top: -0.35em;
+  /*width: 100%;*/
+}
+
+p.q {
+  margin-bottom: 0px;
+}
+
+p.a {
+  margin-top: 0.23em;
+}
+
+hr {
+  visibility: hidden;
+  clear: both;
+}
+
+h1,p {
+  color: #333;
+}
+
+#player {
+  float: left;
+}
+
+#stop {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  float: left;
+  width: 20px;
+  text-align: center;
+  margin-left: 9px;
+  color: white;
+  background-color: rgba(20, 20, 20, 0.8);
+  border-radius: 5px;
+  padding: 0.5em;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.key {
+  border: 1px solid #ccc;
+  border-radius: 0.25em;
+  padding: 0 0.2em;
+  background-color: #fff;
+  font-variant: small-caps;
+}
+
+.unavailable {
+  display: none;
+}

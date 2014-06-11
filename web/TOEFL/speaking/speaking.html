@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>speaking</title>
+
+<style type="text/css">
+#recorder {
+  background-color: #cc0000;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  color: #fff;
+  padding: 1%;
+  font-family: helvetica, arial, verdana;
+  font-weight: bold;
+  width: 98%;
+}
+
+#recorder .loader {
+  border: 1px solid #fff;
+  height: 3px;
+  margin: 10px 0px
+}
+
+#recorder .load-progress {
+  width: 0px;
+  background-color: #fff;
+  height: 3px;
+}
+
+#recorder .play-progress {
+  width: 0px;
+  background-color: #9999cc;
+  height: 3px;
+}
+
+#recorder .controls {
+  text-align: center;
+}
+
+#recorder .controls a {
+  display: inline-block;
+  width: 33px;
+  height: 33px;
+  margin: 0px 14px;
+  overflow: hidden;
+  background-image: url('audio-controls.png');
+  background-repeat: no-repeat;
+}
+
+#recorder .controls a:hover {
+  background-color: #ff9900;
+}
+
+#recorder .controls a span {
+  display: none;
+}
+
+
+
+#progress p
+{
+  display: block;
+  width: 240px;
+  padding: 2px 5px;
+  margin: 2px 0;
+  border: 1px inset #446;
+  border-radius: 5px;
+  background: #eee url("progress.png") 100% 0 repeat-y;
+}
+
+#progress p.success
+{
+  background: #0c0 none 0 0 no-repeat;
+}
+
+#progress p.failed
+{
+  background: #c00 none 0 0 no-repeat;
+}
+</style>
+
+<link rel="stylesheet" type="text/css" href="recorder.css">
+</head>
+
+<body>
+  Test your speakers
+  <audio controls loop>
+    <p>Oops, looks like your browser doesn't support HTML 5 audio.</p>
+  </audio>
+
+  <h2 id="exerciseName">Bla blaa</h2>
+  Enable your microphone
+  
+  meter Listen to the instructions Read the text Record your answer
+
+  <button id="enable">Enable Microphone Input</button>
+  <div id="recorder">
+    <p id="upload-progress"></p>
+    <div class="loader">
+      <div class="load-progress">
+        <div class="play-progress"></div>
+      </div>
+    </div>
+    <div class="controls">
+      <button class="record">Record</button>
+      <button class="play">Play/Pause</button>
+      <button class="rewind">Rewind</button>
+      
+    </div>
+    <audio class="aud">
+      <p>Oops, looks like your browser doesn't support HTML 5 audio.</p>
+    </audio>
+  </div>
+  
+  <div id="progress"></div>
+
+  Submit the recording <button id="upload-button">Upload</button>
+  
+  <h1>Fancy UI</h1>
+  
+  http://audiocogs.org/codecs/mp3/
+  
+  <div class="recorder" id="dgplayer" tabindex="0">
+<!--     <div class="avatar"> -->
+<!--         <img src="/dgplayer/resources/fallback_album_art.png"> -->
+<!--     </div> -->
+
+    <span class="title"></span>
+    <span class="artist"></span>
+
+    <div class="record-button"></div>
+    <div class="play-button"></div>
+
+    <div class="volume">
+        <img src="/dgplayer/resources/volume_high.png">
+        <div class="track">
+            <div class="progress" style="height: 60px;"></div>
+            <div class="handle" style="-webkit-transform: translate3d(0px, -52px, 0px);"></div>
+        </div>
+        <img src="/dgplayer/resources/volume_low.png">
+    </div>
+
+    <div class="seek">
+        <span>0:00</span>
+        <div class="track">
+            <div class="loaded" style="width: 0px;"></div>
+            <div class="progress"></div>
+        </div>
+        <span>-0:00</span>
+    </div>
+    
+    <div class="file_button"></div>
+    <span class="file_description">Choose an MP3 file on your computer</span>
+  </div>
+
+
+  
+  <script type="application/dart" src="speaking.dart"></script>
+  <!-- for this next line to work, your pubspec.yaml file must have a dependency on 'browser' -->
+  <script src="packages/browser/dart.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+name: ReceptorsInLungs
+description: A sample web application
+dependencies:
+  browser: any
+  observe: any
+  uuid:
+    path: ../dart-uuid
+  yaml: any
+  wave:
+    path: ../wave
+transformers:
+  - observe
